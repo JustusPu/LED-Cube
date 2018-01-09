@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LED-Cube</title>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Justus Purat" />
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1" />
+    <!-- ICONS -->
+	<link rel="icon" sizes="192x192" href="img/icon.png"> 
+	<link rel="manifest" href="/manifest.json">
+    <!-- eigene CSS-Defintionen -->
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<script>
+		$(function(){
+			$('.ip_address').mask('099.099.099.099');
+		});
+	</script>
+	<!--Fehler-->
+	<a id="Error1" href="#Error" onclick="document.getElementById('Fehlerbeschreibung').innerHTML='Bitte füllen sie zunächst in den Einstellungen alle Felder aus.'" data-rel="popup" data-position-to="window" data-transition="pop" class=""></a>
+	<a id="Error2" href="#Error" onclick="document.getElementById('Fehlerbeschreibung').innerHTML='Funktion noch nicht vorhanden!!!'" data-rel="popup" data-position-to="window" data-transition="pop" class=""></a>
+	<!-- Start-Seite -->
+	<div data-role="page" id="Start">
+		<!--<div data-role="header">
+			<h1>Page header</h1>
+		</div> -->
+		<div role="main" class="ui-content">
+			<p align="right"><a href="#Settings" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-icon-gear ui-btn-icon-notext ui-shadow ui-corner-all">Settings</a></p>
+			<p align="center" style="font-size:20vw;font-size:12vh;font-family: 'Lobster', cursive;">Let's Play<br>      Feel Free</p>
+			<p><a href="#Auswahl" onclick="if(document.getElementById('name').value==''||document.getElementById('ip_address').value==''){document.getElementById('Error1').click();return false;}" class="ui-btn ui-shadow ui-corner-all">Connect to the cube</a></p>
+		</div>
+
+		<div data-role="popup" id="Settings" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+			<div data-role="header"">
+				<h1>Settings</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-theme="a">
+				Dein Name: <input type="text" id="name">
+				IP-Adresse:<input type="text" placeholder='xxx.xxx.xxx.xxx' id="ip_address" class="ip_address">
+				<a href="#Start" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-icon-back ui-btn-icon-left">Zurück</a></p>
+			</div><!-- /content -->
+
+			<!--<div data-role="footer">
+				<h4>Page Footer</h4>
+			</div> -->
+			
+		</div>
+		
+		<!-- <div data-role="footer">
+			<h4>Page Footer</h4>
+		</div> -->
+		<div data-role="popup" id="Error" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+			<div data-role="header">
+				<h1>Fehler aufgetreten</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-theme="a">
+				<p id="Fehlerbeschreibung"></p>
+			</div>
+
+			<div data-role="footer">
+				<a href="#Start" class="ui-btn ui-shadow ui-corner-all ui-btn-inline">Zurück</a></p>
+			</div> 
+		</div>
+	</div>
+	<!-- Ende Start-Seite -->
+
+
+	<!-- Auswahl-Seite -->
+		<div data-role="page" id="Auswahl" data-theme="a">
+
+			<!-- <div data-role="header">
+				<h1>Header</h1>
+			</div> -->
+
+			<div role="main" class="ui-content">
+				<!--<p align="left"><a href="#Start" data-rel="back" style="width:20vmin;font-size:3vmin;" class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all">Disconnect</a></p>-->
+				<p align="left"><a href="#Start" data-rel="back" style="width:20vmin;font-size:3vmin;" class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all">Disconnect</a></p>
+				</a></p>
+				<p align="center"style="">
+					<a href="#Animation" style="width:60vw;max-height:15vh;font-size:4vmin;" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Erstelle eine Animation</a><br>
+					<a href="#Funktion" style="width:60vw;max-height:15vh;font-size:4vmin;" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Zeichne eine Funktion</a><br>
+					<a href="#Text" style="width:60vw;max-height:15vh;font-size:4vmin;" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Schreibe einen Text</a><br>
+					<a href="#Spiele" style="width:60vw;max-height:15vh;font-size:4vmin;" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Wähle ein Spiel</a><br>
+				</p>
+				
+			</div>
+			
+			<!--<div data-role="footer">
+				<h4>Footer</h4>
+			</div>-->
+		</div>
+	<!-- Ende Auswahl-Seite -->
+
+		<div data-role="page" id="Spiele" data-theme="a">
+			<!--<div data-role="header">
+			</div>-->
+			<div role="main" class="ui-content">
+				<p align="left"><a href="" data-rel="back" ><img style="max-width:40vmin;max-height:15vmin;" id="newid" data-role="button" src="img/Zurueck-Button_fertig.png" data-iconpos="notext" data-theme="a" /></a>
+				<p align="center" style="font-size:7vmin;">
+					Singleplayer:<br>
+					<a href="#Steuerung" onclick="document.getElementById('Error2').click();return false;"><img style="max-width:60vw;max-height:8vh;" id="newid" data-role="button" src="img/Snake-Button_fertig.png" data-iconpos="notext" data-theme="a" /></a><br>
+					<a href="#Steuerung"><img style="max-width:60vw;max-height:8vh;" id="newid" data-role="button" src="img/Tetris-Button_fertig.png" data-iconpos="notext" data-theme="a" /></a><br>
+					<a href="#Steuerung"><img style="max-width:60vw;max-height:8vh;" id="newid" data-role="button" src="img/Tunnel-Button_fertig.png" data-iconpos="notext" data-theme="a" /></a><br>
+					Multiplayer:<br>
+					<a href="#Steuerung"><img style="max-width:60vw;max-height:8vh;" id="newid" data-role="button" src="img/Pong-Button_fertig.png" data-iconpos="notext" data-theme="a" /></a>
+				</p>
+			</div>
+			
+			<!--<div data-role="footer">
+				<h4>Footer</h4>
+			</div>-->
+		</div>
+	<!-- Ende Auswahl-Seite -->
+</body>
+</html>
