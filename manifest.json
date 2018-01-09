@@ -1,0 +1,13 @@
+{
+  "short_name": "LED-Cube",
+  "name": "Steuerung des RGB-LED-Cubes",
+  "icons": [
+    {
+      "src": "img/icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "index.html",
+  "orientation": "landscape"
+}
