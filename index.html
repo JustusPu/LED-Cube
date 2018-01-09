@@ -19,7 +19,7 @@
 </head>
 <body>
 <script>
-	if ('serviceWorker' in navigator) {
+if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('sw.js').then(function(registration) {
       // Registration was successful
@@ -29,7 +29,26 @@
       console.log('ServiceWorker registration failed: ', err);
     });
   });
+  var CACHE_NAME = 'LED-Cube-Cache';
+	var urlsToCache = [
+	  '/',
+	  '/img/',
+	  '/css/',
+	  '/script/'
+	];
+
+self.addEventListener('install', function(event) {
+  // Perform install steps
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        console.log('Opened cache');
+        return cache.addAll(urlsToCache);
+      })
+  );
+});
 }
+
 		$(function(){
 			$('.ip_address').mask('099.099.099.099');
 		});
@@ -54,7 +73,7 @@
 			</div>
 
 			<div role="main" class="ui-content" data-theme="a">
-				Dein Name: <input type="text" id="name" value="Testuser">
+				Dein Name: <input type="text" id="name" value="Justus">
 				IP-Adresse:<input type="text" placeholder='xxx.xxx.xxx.xxx' id="ip_address" class="ip_address" value="1.1.1.1">
 				<a href="#Start" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-icon-back ui-btn-icon-left">Zurück</a></p>
 			</div><!-- /content -->
